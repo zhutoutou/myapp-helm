@@ -1,0 +1,19 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: sample-pod
+  namespace: default
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: ./sample
+      reconcileStrategy: Revision
+      sourceRef:
+        kind: GitRepository
+        name: sample-pod
+        namespace: flux-system
+      valuesFiles:
+        - value.yaml
+        - value-dev.yaml
+      interval: 1m
