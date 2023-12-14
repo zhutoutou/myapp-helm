@@ -14,6 +14,6 @@ spec:
         name: sample-pod
         namespace: flux-system
       valuesFiles:
-        - value.yaml
-        - value-dev.yaml
+        - sample/value.yaml
+        - sample/value-dev.yaml
       interval: 1m
